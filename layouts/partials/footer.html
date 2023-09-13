@@ -1,0 +1,37 @@
+
+<div class="copyright-class">
+    <hr />
+    &copy; <span id="year"></span> Powered by <a href="https://gohugo.io" target="_blank">Hugo</a>, Themes 
+    <a href="https://github.com/OlddogClock/nocss-hugo" target="_blank">hugo-lesscss</a>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.6/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.6/contrib/auto-render.min.js" crossorigin="anonymous"
+onload="renderMathInElement(document.querySelector('.container'));"></script>
+
+
+<script>
+    // 图片预览
+    $("img").each(function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+    });
+
+    // 年份
+    $(document).ready(function() {
+        // 获取当前年份
+        var currentYear = new Date().getFullYear();
+        // 将年份设置到标签中
+        $("#year").html(currentYear);
+    });
+</script>
+ 
+</body>
+</html>

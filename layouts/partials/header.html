@@ -1,0 +1,19 @@
+<div class="header-div">
+    <header class="homepage-header">
+        <h1>{{ .Site.Title }}</h1>
+        <span class="subtitle">{{ .Site.Params.Subtitle }}</span>
+    </header>
+    <hr />
+
+    &nbsp;&nbsp;<a href="{{ "/" | relLangURL }}">🏠首页</a>&nbsp;&nbsp;|
+    &nbsp;&nbsp;<a  href="/layout/about">📖关于</a> &nbsp;&nbsp;| 
+    &nbsp;&nbsp;<a  href="/layout/search">🔗搜索</a>
+
+    <hr />
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories  }}
+       &nbsp;
+        <a class="navbar-item" href="{{ "categories/" | relLangURL }}{{ $name | urlize }}">📁{{ $name | title }}</a>
+    {{ end }}
+
+    <hr />
+</div>

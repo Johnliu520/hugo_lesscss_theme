@@ -1,0 +1,8 @@
+{{ define "main" }}
+<div class="article-detail-tag">
+    <h2>📁{{.Title}}相关的文章</h2>
+</div>
+{{ $paginator := .Paginate (where .Data.Pages "Section" "post") }}
+{{ partial "post_list.html" . }}
+
+{{ end }}

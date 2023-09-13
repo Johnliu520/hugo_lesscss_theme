@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+<article class="article-detail">
+    <div class="container markdown-body">
+        <h2>📖{{.Title}}</h2>
+        <div class="toc-class">
+            {{ partial "toc" . }}
+        </div>
+        <hr />
+
+        <div class="article-detail-content">
+            {{ .Content }}
+        </div>
+        
+
+        <div class="article-detail-pager">
+            <hr>
+            <p>
+                {{ if .PrevInSection }}
+                    <a href="{{ .PrevInSection.RelPermalink }}" 
+                title="{{ .PrevInSection.Title}}">
+                《{{ .PrevInSection.Title}}》</a>⬅
+                {{ end }}
+                🧰
+                {{ if .NextInSection }}
+                ➡<a href="{{ .NextInSection.RelPermalink }}" 
+                        title="{{ .NextInSection.Title}}">《{{ .NextInSection.Title}}》</a>
+                {{ end }}
+            </p>
+        </div>
+
+    </div>
+</article>
+
+{{ end }}

@@ -1,0 +1,48 @@
+
+<!-- post list -->
+{{ range $index, $element := $.Paginator.Pages }}
+<article class="article-index">
+    <div class="article-index-title">
+        <a href="{{ .Permalink }}"  target="_blank">
+            <h2 class="post-title">
+                📙 {{ .Title }}
+            </h2>
+        </a>
+    </div>
+
+
+    <div class="article-index-tag">
+        <small>
+            📅{{ .Date.Format "2006-01-02" }}&nbsp;&nbsp;
+            📁{{ .Params.Categories }} 
+        </small>
+    </div>
+
+    <div class="raticle-index-desc">
+        {{ with .Description }}
+        {{ . }}
+        {{ else }}
+        {{ .Summary}}
+        {{ end }}
+    </div>
+
+    <div class="read-more">
+        <a href="{{ .RelPermalink }}" style="margin-top:20px;" target="_blank">Read More…</a>
+    </div>
+    
+    
+        {{ if .Params.metadata }}
+        <p class="post-meta">
+            {{ range $index, $element := .Params.metadata }}
+                {{ if .link }}
+                    <a href="{{ .link }}">{{ .text }}</a>
+                {{ else }}
+                    {{ .text }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+</article>
+
+{{ end }}
+
+{{ partial "pagination.html" . }}
